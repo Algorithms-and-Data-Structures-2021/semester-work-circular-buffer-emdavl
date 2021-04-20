@@ -1,22 +1,24 @@
 #include "data_structure.hpp"
 #include <cassert>
 #include <algorithm>
+#include <iostream>
+#include <iostream>
 
 // файл с определениями
 
 namespace itis {
 
   void Circular_buffer::clear() {
-    oldestElem = newestElem = dataArr;
+    oldestElem = newestElem = nullptr;
+    dataArr[0] = 0;
     size_ = 0;
   }
 
   Circular_buffer::Circular_buffer(int capacity) {
-
     assert(capacity > 0);
     capacity_ = capacity;
     dataArr = new int[capacity];
-    oldestElem = newestElem = dataArr;
+    oldestElem = newestElem = nullptr;
   }
 
   bool Circular_buffer::isEmpty() {
@@ -45,6 +47,7 @@ namespace itis {
 
   void Circular_buffer::addToEmpty(int value) {
     dataArr[0] = value;
+    oldestElem = newestElem = dataArr;
     size_++;
   }
 
@@ -53,12 +56,12 @@ namespace itis {
     if(isFull()){
       *oldestElem = value;
       newestElem = oldestElem++;
-      if(oldestElem > &dataArr[size_-1]){
+      if(oldestElem > &dataArr[capacity_-1]){
         oldestElem = &dataArr[0];
       }
     }else{
       newestElem = newestElem + 1;
-      if(newestElem > &dataArr[size_ - 1]){
+      if(newestElem > &dataArr[capacity_ - 1]){
         newestElem = &dataArr[0];
       }
       *newestElem = value;
@@ -71,12 +74,12 @@ namespace itis {
       *newestElem = value;
       oldestElem = newestElem--;
       if(newestElem < &dataArr[0]){
-        newestElem = &dataArr[size_ -1];
+        newestElem = &dataArr[capacity_ -1];
       }
     }else{
       oldestElem = oldestElem - 1;
       if(oldestElem < &dataArr[0]){
-        oldestElem = &dataArr[size_ - 1];
+        oldestElem = &dataArr[capacity_ - 1];
       }
       *oldestElem = value;
       size_++;
@@ -104,13 +107,18 @@ namespace itis {
   void Circular_buffer::expand(int newCapacity) {
     assert(newCapacity > capacity_);
     int *newDataArr = new int[newCapacity];
-    int indexOfOldestElem = oldestElem - dataArr;
-    int indexOfNewestElem = newestElem - dataArr;
-    std::copy(dataArr, &dataArr[size_], newDataArr);
 
-    oldestElem = &newDataArr[indexOfOldestElem];
-    newestElem = &newDataArr[indexOfNewestElem];
+    for (int i = 0; i < size_; ++i) {
+      newDataArr[i] = *oldestElem;
+      oldestElem++;
+      if(oldestElem > &dataArr[capacity_ - 1]){
+        oldestElem = dataArr;
+      }
+    }
+    oldestElem = &newDataArr[0];
+    newestElem = &newDataArr[size_-1];
 
+    capacity_ = newCapacity;
     delete[] dataArr;
     dataArr = newDataArr;
   }
@@ -124,7 +132,8 @@ namespace itis {
       throw "Trying to get elem from empty array";
     }
     int elem = *oldestElem;
-    if(++oldestElem > &dataArr[size_ - 1]){
+    oldestElem = oldestElem + 1;
+    if(oldestElem > &dataArr[capacity_ - 1]){
       oldestElem = dataArr;
     }
     size_--;
@@ -137,7 +146,7 @@ namespace itis {
     }
     int elem = *newestElem;
     if(--newestElem < dataArr){
-      newestElem = &dataArr[size_ - 1];
+      newestElem = &dataArr[capacity_ - 1];
     }
     size_--;
     return elem;
