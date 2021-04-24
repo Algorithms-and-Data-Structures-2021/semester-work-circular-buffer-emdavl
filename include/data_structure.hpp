@@ -40,7 +40,7 @@ namespace itis {
 
     /***
      *
-     * Теперь size = 0 и все указатели указывают на начало массива dataArr
+     * Теперь size = 0 и все указатели указывают на nullptr
      *
      */
     void clear();
@@ -107,6 +107,7 @@ namespace itis {
      * @param value - значение нового элемента
      */
     void addFront(int value);
+
     /***
      *
      * Добавляет новое значение перед тем, на которое указывает firstElem. В случае если буффер уже заполнен
@@ -120,6 +121,7 @@ namespace itis {
      * @return значение поля size
      */
     int getSize();
+
     /***
      * @return значение поля capacity
      */
