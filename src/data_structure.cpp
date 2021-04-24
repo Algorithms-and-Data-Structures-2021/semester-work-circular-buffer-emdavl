@@ -71,29 +71,17 @@ namespace itis {
 
     void Circular_buffer::addBackToNotEmpty(int value) {
         if (isFull()) {
-            // Значение, находящееся перед первым элементом
-            // перезаписывается
             *lastElem = value;
-            // Происходит сдвиг, т.е. теперь первый элемент
-            // начинает ссылаться туда,
-            // куда ссылался последний, а последний начинает
-            // ссылаться на предыдущий.
             firstElem = lastElem--;
-            //Проверка, не перепрыгнули ли мы за пределы
-            // массива dataArr
             if (lastElem < &dataArr[0]) {
                 lastElem = &dataArr[capacity_ - 1];
             }
         } else {
-            // Сдвиг, теперь первый ссылается на предыдущее место
             firstElem = firstElem - 1;
-            // Проверка, не перепрыгнули ли мы за пределы массива dataArr
-            if (firstElem < &dataArr[0]) {
+            if (firstElem < dataArr) {
                 firstElem = &dataArr[capacity_ - 1];
             }
-            // Присваивание значения
             *firstElem = value;
-            // Увеличение счетчика количества элементов в КБ
             size_++;
         }
     }
@@ -140,9 +128,7 @@ namespace itis {
     }
 
     int Circular_buffer::getBack() {
-        if (size_ == 0) {
-            throw "Trying to get elem from empty array";
-        }
+        assert(size_ > 0);
         int elem = *firstElem;
         firstElem = firstElem + 1;
         if (firstElem > &dataArr[capacity_ - 1]) {
@@ -153,10 +139,9 @@ namespace itis {
     }
 
     int Circular_buffer::getFront() {
-        if (size_ == 0) {
-            throw "Trying to get elem from empty array";
-        }
-        int elem = *lastElem;
+      assert(size_ > 0);
+
+      int elem = *lastElem;
         if (--lastElem < dataArr) {
             lastElem = &dataArr[capacity_ - 1];
         }
