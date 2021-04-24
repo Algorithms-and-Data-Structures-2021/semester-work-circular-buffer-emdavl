@@ -36,5 +36,5 @@
 
 # Build files
 *build*
-
-
+/dataset/data/*
+*.csv
