@@ -79,14 +79,8 @@ cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --config RelWithDebInfo --bu
 Генерация тестового набора данных в
 формате [comma-seperated values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values):
 
-```shell
-# переход в папку генерации набора данных
-cd dataset
-
-# запуск Python-скрипта
-python generate_csv_bench_dataset.py --samples 1000 <output> [args ...]
-```
-
+Требуется скачать папку с Java файлами из Google Drive и запустить файлы при помощи java компилятора 
+https://drive.google.com/drive/folders/1-0D8GOKiwqC1CzAygyyaqbrOzUn-qf4d
 
 #### Контрольные тесты (benchmarks)
 
