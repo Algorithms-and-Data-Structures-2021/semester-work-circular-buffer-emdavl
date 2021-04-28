@@ -79,8 +79,7 @@ cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --config RelWithDebInfo --bu
 Генерация тестового набора данных в
 формате [comma-seperated values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values):
 
-Требуется скачать папку с Java файлами из Google Drive и запустить файлы при помощи java компилятора 
-https://drive.google.com/drive/folders/1-0D8GOKiwqC1CzAygyyaqbrOzUn-qf4d
+[Папка с тестовыми данными и файлами java](https://drive.google.com/drive/folders/13b38_WyW4PvZI1Pbp8rl9OX8KUEY79or?usp=sharing)
 
 #### Контрольные тесты (benchmarks)
 
