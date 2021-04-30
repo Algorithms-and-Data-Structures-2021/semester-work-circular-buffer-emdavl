@@ -119,4 +119,4 @@ cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --config RelWithDebInfo --bu
 
 [Статья о КБ на Wikipedia](https://en.wikipedia.org/wiki/Circular_buffer)
 
-[Реализация буфера на C](ttps://embedjournal.com/implementing-circular-buffer-embedded-c/)
+[Реализация буфера на C](https://embedjournal.com/implementing-circular-buffer-embedded-c/)
