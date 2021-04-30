@@ -103,13 +103,22 @@ cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --config RelWithDebInfo --bu
 
 ##### Примеры запуска
 
-Генерируете набор тестовых данных, либо скачиваете с google drive\
+Генерируете набор тестовых данных, либо скачиваете с google drive. Процесс генерации описан выше.
+
 Помещаете его по пути dataset\data
-Открываете .cpp файл нужного бенчмарка\
+![изображение](https://user-images.githubusercontent.com/79557554/116752231-ecdaef80-aa0d-11eb-8b70-ac2307c8a3c1.png)
+
+
+Открываете .cpp файл нужного бенчмарка двойным нажатием на него
+![изображение](https://user-images.githubusercontent.com/79557554/116752284-0845fa80-aa0e-11eb-958f-5dc9ed00d90a.png)
+
 Запускаете метод main\
-Результаты будут сохранены в отдельный csv файл по пути dataset\data
+![изображение](https://user-images.githubusercontent.com/79557554/116752396-2e6b9a80-aa0e-11eb-8af6-08ee2e06e57b.png)
+
+Результаты будут сохранены в отдельный csv файл по пути dataset\data для методов get в файле get_result.csv, для методов add - add_result.csv
 
 ## Источники
 
-Список использованных источников можете найти в отчете, который лежит в папке google drive. 
-Там же имеется более подробное описание всех методов.
+[Статья о КБ на Wikipedia] (https://en.wikipedia.org/wiki/Circular_buffer)
+
+[Реализация буфера на C] (ttps://embedjournal.com/implementing-circular-buffer-embedded-c/)
