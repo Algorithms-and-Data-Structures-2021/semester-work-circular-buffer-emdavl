@@ -33,7 +33,7 @@
 
 ## Требования (Prerequisites)
 
-**Пример**. Рекомендуемые требования:
+Рекомендуемые требования:
 
 1. С++ компилятор c поддержкой стандарта C++17 (например, _GNU GCC 8.1.x_ и выше).
 2. Система автоматизации сборки _CMake_ (версия _3.12.x_ и выше).
@@ -44,8 +44,6 @@
 ## Сборка и запуск
 
 _Инструкция по сборке проекта, генерации тестовых данных, запуска контрольных тестов и примеров работы._
-
-_Постарайтесь написать инструкцию так, чтобы незнакомый с проектом человек смог самостоятельно всё запустить._
 
 #### Сборка проекта
 
@@ -119,6 +117,6 @@ cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --config RelWithDebInfo --bu
 
 ## Источники
 
-[Статья о КБ на Wikipedia] (https://en.wikipedia.org/wiki/Circular_buffer)
+[Статья о КБ на Wikipedia](https://en.wikipedia.org/wiki/Circular_buffer)
 
-[Реализация буфера на C] (ttps://embedjournal.com/implementing-circular-buffer-embedded-c/)
+[Реализация буфера на C](ttps://embedjournal.com/implementing-circular-buffer-embedded-c/)
