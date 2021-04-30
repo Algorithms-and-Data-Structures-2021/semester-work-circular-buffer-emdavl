@@ -71,13 +71,23 @@ cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --config RelWithDebInfo --bu
 
 #### Генерация тестовых данных
 
-Тестовые данные хранятся в формате CSV, сгенерировать их вы можете при помощи приложенного в google drive .jar файла, либо же взять уже готовые.\
+Тестовые данные хранятся в формате CSV, сгенерировать их вы можете при помощи приложенного в google drive .jar файла, либо же взять уже готовые.
+
+Для генерации данных при помощи jar файла вы должны скачать файл из папки [google drive](https://drive.google.com/drive/folders/1bdaRkm9ZK3eV_Z18VlS_SyQRzGM40TQU?usp=sharing)
+![изображение](https://user-images.githubusercontent.com/79557554/116746776-af726400-aa05-11eb-990e-44ab2334d060.png)
+
+
+После двойного клика по загруженному файлу, откроется следующее окно, куда вы должны будете ввести путь до папки, где собираетесь хранить тестовые данные^
+![изображение](https://user-images.githubusercontent.com/79557554/116747057-0b3ced00-aa06-11eb-8784-d7e5cb271985.png)
+
+
+После нажатия на кнопку Generate! и пяти-десятисекундного ожидания в указанной вами папки появятся сгенерированные случайно значения.
 
 
 Генерация тестового набора данных в
 формате [comma-seperated values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values):
 
-[Папка с тестовыми данными и файлом java](https://drive.google.com/drive/folders/13b38_WyW4PvZI1Pbp8rl9OX8KUEY79or?usp=sharing)
+[Папка с тестовыми данными и файлом java](https://drive.google.com/drive/folders/1bdaRkm9ZK3eV_Z18VlS_SyQRzGM40TQU?usp=sharing)
 
 #### Контрольные тесты (benchmarks)
 
